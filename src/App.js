@@ -1,9 +1,9 @@
-
+import CreateAccount from "./Components/CreateAccount";
 
 function App() {
   return (
     <div className="App">
-     hello 
+     <CreateAccount/>
     </div>
   );
 }
