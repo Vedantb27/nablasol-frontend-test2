@@ -1,10 +1,14 @@
+import React from 'react';
 import CreateAccount from "./Components/CreateAccount";
+import { GlobalProvider } from './GlobalContext';
 
 function App() {
   return (
-    <div className="App">
-     <CreateAccount/>
-    </div>
+    <GlobalProvider>
+      <div className="App">
+        <CreateAccount/>
+      </div>
+    </GlobalProvider>
   );
 }
 
