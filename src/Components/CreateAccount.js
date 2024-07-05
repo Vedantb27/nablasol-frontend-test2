@@ -20,14 +20,14 @@ function CreateAccount() {
           <h2 className="text-2xl font-semibold mb-4 text-center text-2xl text-white">Create New Account</h2>
         </div>
       </div>
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-5xl w-full">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-5xl w-full ">
         <div className="flex justify-between mb-8">
           <div className="text-blue-600 font-medium text-center text-2xl"><span>1</span> Your Profile</div>
           <div className="text-gray-400 text-center text-2xl"><span>2</span> Business Information</div>
           <div className="text-gray-400 text-center text-2xl"><span>3</span> Additional Users</div>
         </div>
         <h3 className="text-xl font-semibold mb-4 text-center text-slate-400">Step 1</h3>
-        <h4 className="text-lg  mb-6 text-center text-4xl text-slate-500">Your Profile</h4>
+        <h4 className="text-lg  mb-6 text-center text-4xl text-slate-500">Your Profile  </h4>
         <p className="text-gray-600 mb-6 text-center  w-1/2 ml-auto mr-auto text-lg">Enter the login information for your account. You will be able to create additional users after registering.</p>
         <form className="grid grid-cols-2 gap-6  ml-20 mr-20">
           <div>
