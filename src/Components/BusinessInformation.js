@@ -114,21 +114,37 @@ function BusinessInformation() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-purple-400 to-blue-400 p-4 pt-2">
-      <div className='w-full flex flex-col items-center'>
-        <div className='flex justify-end text-xl w-2/3 ml-20 text-white'>Contact us</div>
-        <div className='flex justify-center'>
-          <h2 className="text-2xl font-semibold mb-1 text-center text-white">Create New Account</h2>
-        </div>
-      </div>
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full">
-        <div className="flex justify-between mb-4">
-          <div className="text-blue-600 font-medium text-center text-2xl"><span>1</span> Your Profile</div>
-          <div className="text-gray-400 text-center text-2xl"><span>2</span> Business Information</div>
-          <div className="text-gray-400 text-center text-2xl"><span>3</span> Additional Users</div>
-        </div>
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-purple-400 to-blue-400 p-4 pt-2 " >
+       <div className='w-full  flex flex-col items-center  mb-4 '>
+
+<div className='flex justify-center  w-2/3 '>
+
+    <h2 className="text-2xl font-semibold mb-2 text-center text-2xl text-white w-full ">Create New Account</h2>
+    <div className='flex justify-end   text-white text-sm min-w-20'>Contact us</div>
+</div>
+</div>
+      <div className="bg-white shadow-lg rounded-lg pl-8 pr-8 pb-8 max-w-3xl w-full">
+      <div className="flex justify-between  ">
+                    <div className="text-blue-600  bg-sky-500 font-medium text-center md:text-xl text-white flex border border-sky-500	 w-full h-16 flex justify-center items-center">
+                        <span className='border rounded-full w-8 h-8 flex items-center justify-center'>
+                            1
+                        </span> Your Profile
+                    </div>
+                    <div className="text-white bg-sky-500 font-medium text-center md:text-xl flex  text-slate-300 w-full flex justify-center items-center border rounded-r-3xl border-sky-500	">
+                        <span className='border rounded-full w-8 h-8 flex items-center justify-center  text-white'>
+                            2
+                        </span> Business Information
+                    </div>
+                    <div className="text-blue-600 font-medium text-center md:text-xl flex text-slate-300 w-full flex justify-center items-center">
+                        <span className='border rounded-full w-8 h-8 flex items-center justify-center bg-slate-300 text-white'>
+                            3
+                        </span> Additional Users
+                    </div>
+                   
+
+                </div>
         <h3 className="text-xl font-semibold text-center text-slate-400">Step 1</h3>
-        <div className="text-gray-700 text-center text-2xl"><span>2</span> Business Information</div>
+        <div className="text-gray-700 text-center text-2xl"> Business Information</div>
         <p className="text-gray-600 mb-2 text-center ml-auto mr-auto text-lg">Please, enter information about your company.</p>
 
         <label className='ml-10 mr-10 text-cyan-500 text-lg'>General Information</label>
