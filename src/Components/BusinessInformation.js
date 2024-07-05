@@ -4,6 +4,12 @@ import { useNavigate } from 'react-router-dom';
 
 function BusinessInformation() {
   const {
+    firstName, setFirstName,
+    lastName, setLastName,
+    email, setEmail,
+    phoneNumber, setPhoneNumber,
+    password, setPassword,
+    confirmPassword, setConfirmPassword,
     brandName, setBrandName,
     brandType, setBrandType,
     streetAddress, setStreetAddress,
@@ -18,13 +24,93 @@ function BusinessInformation() {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    
     navigate('/'); // Update the path as needed
   };
 
   const handleNext = () => {
-    alert('Form submitted succesfully');
+    if (!brandName.trim()) {
+      alert('Brand Name is required.');
+      return;
+    }
+    if (!brandType.trim()) {
+      alert('Brand Type is required.');
+      return;
+    }
+    if (!streetAddress.trim()) {
+      alert('Street Address is required.');
+      return;
+    }
+    if (!city.trim()) {
+      alert('City is required.');
+      return;
+    }
+    if (!zipCode.trim()) {
+      alert('Zip Code is required.');
+      return;
+    }
+    if (!/^[0-9]*$/.test(zipCode)) {
+      alert('Zip Code must be numeric.');
+      return;
+    }
+    if (!taxID.trim()) {
+      alert('Tax ID Number is required.');
+      return;
+    }
+  
+    // Create an object with the state variables
+    const formData = {
+      brandName,
+      brandType,
+      streetAddress,
+      city,
+      zipCode,
+      taxID,
+      agreementSigned,
+      waiverSigned,
+      coiSigned
+    };
+  
+    // Retrieve existing data from local storage
+    let existingData = localStorage.getItem('businessInformation');
+    existingData = existingData ? JSON.parse(existingData) : [];
+  
+    // Append new form data to existing data array
+    const newData = [...existingData, formData];
+  
+    // Save the updated data back to local storage
+    localStorage.setItem('businessInformation', JSON.stringify(newData));
+  
+    // Reset state variables to their initial values
+    setBrandName('');
+    setBrandType('');
+    setStreetAddress('');
+    setCity('');
+    setZipCode('');
+    setTaxID('');
+    setAgreementSigned('unsigned');
+    setWaiverSigned('unsigned');
+    setCoiSigned('unsigned');
+  
+    // Reset other form state variables as needed
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPhoneNumber('');
+    setPassword('');
+    setConfirmPassword('');
+  
+    // Navigate to the next page
+    alert('Form submitted successfully');
     navigate('/'); // Update the path as needed
+  };
+  
+  
+  
+  const handleZipCodeChange = (e) => {
+    const value = e.target.value;
+    if (/^[0-9]*$/.test(value)) {
+      setZipCode(value);
+    }
   };
 
   return (
@@ -32,7 +118,7 @@ function BusinessInformation() {
       <div className='w-full flex flex-col items-center'>
         <div className='flex justify-end text-xl w-2/3 ml-20 text-white'>Contact us</div>
         <div className='flex justify-center'>
-          <h2 className="text-2xl font-semibold mb-1 text-center text-2xl text-white">Create New Account</h2>
+          <h2 className="text-2xl font-semibold mb-1 text-center text-white">Create New Account</h2>
         </div>
       </div>
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full">
@@ -103,7 +189,7 @@ function BusinessInformation() {
               className="border border-gray-300 rounded-lg px-3 py-2 w-full"
               placeholder="Input Zip Code"
               value={zipCode}
-              onChange={(e) => setZipCode(e.target.value)}
+              onChange={handleZipCodeChange}
             />
           </div>
           <div>
@@ -148,8 +234,8 @@ function BusinessInformation() {
 
           <div className="rounded-lg px-3 flex items-center justify-between mb-4">
             <div className='border border-gray-300 rounded-lg py-2 w-full flex justify-between'>
-              <span>Proof of insurance</span>
-              <button className={`text-blue-500 ${coiSigned === 'signed' ? 'text-opacity-100' : 'text-opacity-50'}`} onClick={() => setCoiSigned('signed')}>
+              <span>Certificate of insurance that states $2,000,000.00 as additional insured</span>
+              <button className={`text-red-500 ${coiSigned === 'signed' ? 'text-opacity-100' : 'text-opacity-50'}`} onClick={() => setCoiSigned('signed')}>
                 <i className="fa-solid fa-xmark mr-2"></i>
               </button>
             </div>
@@ -157,18 +243,11 @@ function BusinessInformation() {
               <i className="fa-solid fa-angle-right"></i>
             </div>
           </div>
-        </div>
-      </div>
-      <div className=" w-full md:w-2/3 flex justify-around mt-4 ">
-        <a href="#" className="text-blue-500 hover:underline "><i className="fa-solid fa-chevron-left mr-2" onClick={handleBack}></i>Back to Login</a>
-        <div className=''>
-          <button className="text-indigo-500 border-2 bg-white border-sky-700 text-indigo md:px-6 py-2 rounded-lg mr-2" onClick={handleBack}>
-            <i className="fa-solid fa-angle-left mr-2"></i>
-            Previous Step
-          </button>
-          <button className="bg-indigo-500 text-white md:px-6 py-2 rounded-lg hover:bg-blue-600" onClick={handleNext}>
-            Next Step<i className="fa-solid fa-angle-right ml-2"></i>
-          </button>
+
+          <div className="flex justify-between mt-6">
+            <button className="bg-indigo-500 text-white py-2 px-6 rounded-lg text-lg font-semibold" onClick={handleBack}>Back</button>
+            <button className="bg-indigo-500 text-white py-2 px-6 rounded-lg text-lg font-semibold" onClick={handleNext}>Next</button>
+          </div>
         </div>
       </div>
     </div>
