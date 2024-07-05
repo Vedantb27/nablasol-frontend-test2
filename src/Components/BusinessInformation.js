@@ -56,7 +56,7 @@ function BusinessInformation() {
       alert('Tax ID Number is required.');
       return;
     }
-  
+
     // Create an object with the state variables
     const formData = {
       brandName,
@@ -69,17 +69,17 @@ function BusinessInformation() {
       waiverSigned,
       coiSigned
     };
-  
+
     // Retrieve existing data from local storage
     let existingData = localStorage.getItem('businessInformation');
     existingData = existingData ? JSON.parse(existingData) : [];
-  
+
     // Append new form data to existing data array
     const newData = [...existingData, formData];
-  
+
     // Save the updated data back to local storage
     localStorage.setItem('businessInformation', JSON.stringify(newData));
-  
+
     // Reset state variables to their initial values
     setBrandName('');
     setBrandType('');
@@ -90,7 +90,7 @@ function BusinessInformation() {
     setAgreementSigned('unsigned');
     setWaiverSigned('unsigned');
     setCoiSigned('unsigned');
-  
+
     // Reset other form state variables as needed
     setFirstName('');
     setLastName('');
@@ -98,14 +98,12 @@ function BusinessInformation() {
     setPhoneNumber('');
     setPassword('');
     setConfirmPassword('');
-  
+
     // Navigate to the next page
     alert('Form submitted successfully');
     navigate('/'); // Update the path as needed
   };
-  
-  
-  
+
   const handleZipCodeChange = (e) => {
     const value = e.target.value;
     if (/^[0-9]*$/.test(value)) {
@@ -114,41 +112,38 @@ function BusinessInformation() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-purple-400 to-blue-400 p-4 pt-2 " >
-       <div className='w-full  flex flex-col items-center  mb-4 '>
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-purple-400 to-blue-400 p-4 pt-2 min-h-screen">
+      <div className='w-full flex flex-col items-center mb-4'>
 
-<div className='flex justify-center  w-2/3 '>
-
-    <h2 className="text-2xl font-semibold mb-2 text-center text-2xl text-white w-full ">Create New Account</h2>
-    <div className='flex justify-end   text-white text-sm min-w-20'>Contact us</div>
-</div>
-</div>
-      <div className="bg-white shadow-lg rounded-lg pl-8 pr-8 pb-8 max-w-3xl w-full">
-      <div className="flex justify-between  ">
-                    <div className="text-blue-600  bg-sky-500 font-medium text-center md:text-xl text-white flex border border-sky-500	 w-full h-16 flex justify-center items-center">
-                        <span className='border rounded-full w-8 h-8 flex items-center justify-center'>
-                            1
-                        </span> Your Profile
-                    </div>
-                    <div className="text-white bg-sky-500 font-medium text-center md:text-xl flex  text-slate-300 w-full flex justify-center items-center border rounded-r-3xl border-sky-500	">
-                        <span className='border rounded-full w-8 h-8 flex items-center justify-center  text-white'>
-                            2
-                        </span> Business Information
-                    </div>
-                    <div className="text-blue-600 font-medium text-center md:text-xl flex text-slate-300 w-full flex justify-center items-center">
-                        <span className='border rounded-full w-8 h-8 flex items-center justify-center bg-slate-300 text-white'>
-                            3
-                        </span> Additional Users
-                    </div>
-                   
-
-                </div>
+        <div className='flex justify-center w-full lg:w-2/3'>
+          <h2 className="text-2xl font-semibold mb-2 text-center text-white w-full">Create New Account</h2>
+          <div className='flex justify-end text-white text-sm min-w-20'>Contact us</div>
+        </div>
+      </div>
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full">
+        <div className="flex flex-col md:flex-row justify-between mb-8">
+          <div className="text-blue-600 bg-sky-500 font-medium text-center md:text-2xl text-white flex border-4 border-sky-500 w-full h-16 justify-center items-center mb-4 md:mb-0">
+            <span className='border rounded-full w-8 h-8 flex items-center justify-center'>
+              1
+            </span> Your Profile
+          </div>
+          <div className="text-white bg-sky-500 font-medium text-center md:text-2xl flex w-full mr-0 md:mr-2 justify-center items-center border rounded-r-3xl border-sky-500 mb-4 md:mb-0">
+            <span className='border rounded-full w-8 h-8 flex items-center justify-center text-white'>
+              2
+            </span> Business Information
+          </div>
+          <div className="text-blue-600 font-medium text-center md:text-2xl flex text-slate-300 w-full justify-center items-center">
+            <span className='border rounded-full w-8 h-8 flex items-center justify-center bg-slate-300 text-white'>
+              3
+            </span> Additional Users
+          </div>
+        </div>
         <h3 className="text-xl font-semibold text-center text-slate-400">Step 1</h3>
         <div className="text-gray-700 text-center text-2xl"> Business Information</div>
-        <p className="text-gray-600 mb-2 text-center ml-auto mr-auto text-lg">Please, enter information about your company.</p>
+        <p className="text-gray-600 mb-2 text-center text-lg">Please, enter information about your company.</p>
 
-        <label className='ml-10 mr-10 text-cyan-500 text-lg'>General Information</label>
-        <form className="grid grid-cols-2 gap-6 ml-10 mr-10">
+        <label className='text-cyan-500 text-lg block text-center md:text-left mb-4'>General Information</label>
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-gray-700">Brand Name*</label>
             <input
@@ -220,7 +215,7 @@ function BusinessInformation() {
           </div>
         </form>
 
-        <div className="mt-6 ml-10 mr-10">
+        <div className="mt-6">
           <label className="block text-cyan-500 text-lg">DOCUMENTS</label>
           <p className="text-gray-600 mb-4">Once the following documents are signed, you'll be ready to get started</p>
 
